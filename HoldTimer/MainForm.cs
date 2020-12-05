@@ -89,7 +89,7 @@ namespace HoldTimer
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Process.Start("https://github.com/cborrow/HoldTimer");
         }
     }
 }
