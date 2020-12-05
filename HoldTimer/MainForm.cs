@@ -13,6 +13,7 @@ namespace HoldTimer
     public partial class MainForm : Form
     {
         NewTimerDialog newTimerDialog;
+        SettingsDialog settingsDialog;
 
         static NotifyIcon notificationIcon;
         public static NotifyIcon NotificationIcon
@@ -26,6 +27,7 @@ namespace HoldTimer
 
             notificationIcon = notifyIcon1;
             newTimerDialog = new NewTimerDialog();
+            settingsDialog = new SettingsDialog();
 
             panel1.ControlRemoved += Panel1_ControlRemoved;
             panel1.ClientSizeChanged += Panel1_ClientSizeChanged;
@@ -90,6 +92,14 @@ namespace HoldTimer
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/cborrow/HoldTimer");
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            if(settingsDialog.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
     }
 }
