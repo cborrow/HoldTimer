@@ -14,6 +14,7 @@ namespace HoldTimer
     {
         protected delegate void UpdateTimerDisplayDelegate(TimeSpan time);
         protected delegate void ShowNotificationDelegate();
+        protected delegate void SetTimerColorDelegate(Color color);
 
         Thread timerThread;
 
@@ -39,12 +40,20 @@ namespace HoldTimer
             set { label1.Text = value; }
         }
 
+        public Color DefaultTimeColor { get; internal set; }
+        public Color AlertTimeColor { get; set; }
+        public Color OverTimeColor { get; set; }
+
         public TimerControl()
         {
             InitializeComponent();
 
             running = true;
             CreateTimerThread();
+
+            DefaultTimeColor = label2.ForeColor;
+            AlertTimeColor = Color.Yellow;
+            OverTimeColor = Color.Red;
         }
 
         public void PauseTimer()
@@ -71,6 +80,7 @@ namespace HoldTimer
             elapsedTime = TimeSpan.Zero;
             running = true;
             pauseTimerButton.Image = HoldTimer.Properties.Resources.Pause_Icon;
+            SetTimerColor(DefaultTimeColor);
             CreateTimerThread();
 
             UpdatePastTimersDisplay();
@@ -79,8 +89,10 @@ namespace HoldTimer
         public void StopTimer()
         {
             running = false;
+            elapsedTime = TimeSpan.Zero;
             pauseTimerButton.Image = HoldTimer.Properties.Resources.Resume_Icon;
             pastTimes.Add(elapsedTime);
+            SetTimerColor(DefaultTimeColor);
 
             if (timerThread.IsAlive)
                 timerThread.Abort();
@@ -107,7 +119,15 @@ namespace HoldTimer
                     if(elapsedTime == alertTime)
                     {
                         if (InvokeRequired)
+                        {
                             Invoke(new ShowNotificationDelegate(ShowNotification));
+                            Invoke(new SetTimerColorDelegate(SetTimerColor), AlertTimeColor);
+                        }
+                    }
+                    else if(elapsedTime > alertTime.Add(new TimeSpan(0, 2, 0)))
+                    {
+                        if (InvokeRequired)
+                            Invoke(new SetTimerColorDelegate(SetTimerColor), OverTimeColor);
                     }
 
                     if (InvokeRequired && running)
@@ -148,6 +168,11 @@ namespace HoldTimer
         {
             if(label2 != null)
                 label2.Text = timeSpan.ToString();
+        }
+
+        protected void SetTimerColor(Color color)
+        {
+            label2.ForeColor = color;
         }
 
         protected void ShowNotification()
