@@ -8,21 +8,90 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-namespace HoldTimer.Properties
-{
+namespace HoldTimer.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("80, 60, 100")]
+        public global::System.Drawing.Color TimerBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["TimerBackColor"]));
+            }
+            set {
+                this["TimerBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("63, 150, 131")]
+        public global::System.Drawing.Color TimerForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["TimerForeColor"]));
+            }
+            set {
+                this["TimerForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Yellow")]
+        public global::System.Drawing.Color AlertTimeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["AlertTimeColor"]));
+            }
+            set {
+                this["AlertTimeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Red")]
+        public global::System.Drawing.Color OverTimeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["OverTimeColor"]));
+            }
+            set {
+                this["OverTimeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Gray")]
+        public global::System.Drawing.Color AltTextColor {
+            get {
+                return ((global::System.Drawing.Color)(this["AltTextColor"]));
+            }
+            set {
+                this["AltTextColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("00:02:00")]
+        public global::System.TimeSpan OverTimeValue {
+            get {
+                return ((global::System.TimeSpan)(this["OverTimeValue"]));
+            }
+            set {
+                this["OverTimeValue"] = value;
             }
         }
     }
