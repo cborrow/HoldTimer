@@ -41,6 +41,39 @@ namespace HoldTimer
             set { button5.BackColor = value; }
         }
 
+        public TimeSpan TimeOverValue
+        {
+            get
+            {
+                int val = (int)numericUpDown1.Value;
+
+                if (comboBox1.Text == "Hours")
+                    return new TimeSpan(val, 0, 0);
+                else if (comboBox1.Text == "Minutes")
+                    return new TimeSpan(0, val, 0);
+                else
+                    return new TimeSpan(0, 0, val);
+            }
+            set
+            {
+                if (value.Hours > 0)
+                {
+                    comboBox1.Text = "Hours";
+                    numericUpDown1.Value = value.Hours;
+                }
+                else if (value.Minutes > 0)
+                {
+                    comboBox1.Text = "Minutes";
+                    numericUpDown1.Value = value.Minutes;
+                }
+                else
+                {
+                    comboBox1.Text = "Seconds";
+                    numericUpDown1.Value = value.Seconds;
+                }
+            }
+        }
+
         public SettingsDialog()
         {
             InitializeComponent();
