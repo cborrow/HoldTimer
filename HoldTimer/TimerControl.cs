@@ -28,6 +28,8 @@ namespace HoldTimer
             set { alertTime = value; }
         }
 
+        TimeSpan overTimeValue;
+
         bool running;
         public bool Running
         {
@@ -54,6 +56,9 @@ namespace HoldTimer
             DefaultTimeColor = label2.ForeColor;
             AlertTimeColor = Color.Yellow;
             OverTimeColor = Color.Red;
+
+            LoadSettings();
+            Properties.Settings.Default.PropertyChanged += Default_PropertyChanged;
         }
 
         public void PauseTimer()
@@ -124,7 +129,7 @@ namespace HoldTimer
                             Invoke(new SetTimerColorDelegate(SetTimerColor), AlertTimeColor);
                         }
                     }
-                    else if(elapsedTime > alertTime.Add(new TimeSpan(0, 2, 0)))
+                    else if(elapsedTime > alertTime.Add(overTimeValue))
                     {
                         if (InvokeRequired)
                             Invoke(new SetTimerColorDelegate(SetTimerColor), OverTimeColor);
@@ -180,6 +185,28 @@ namespace HoldTimer
             MainForm.NotificationIcon.ShowBalloonTip(15, Title + " - Hold Timer", "A running timer has reached it's alert timeout", ToolTipIcon.Warning);
         }
 
+        protected void LoadSettings()
+        {
+            BackColor = Properties.Settings.Default.TimerBackColor;
+            ForeColor = Properties.Settings.Default.AltTextColor;
+
+            DefaultTimeColor = Properties.Settings.Default.TimerForeColor;
+            AlertTimeColor = Properties.Settings.Default.AlertTimeColor;
+            OverTimeColor = Properties.Settings.Default.OverTimeColor;
+
+            overTimeValue = Properties.Settings.Default.OverTimeValue;
+
+            if (elapsedTime > alertTime)
+            {
+                if (elapsedTime >= (alertTime.Add(overTimeValue)))
+                    label2.ForeColor = OverTimeColor;
+                else
+                    label2.ForeColor = AlertTimeColor;
+            }
+            else
+                label2.ForeColor = DefaultTimeColor;
+        }
+
         private void resetTimerButton_Click(object sender, EventArgs e)
         {
             RestartTimer();
@@ -196,6 +223,11 @@ namespace HoldTimer
         private void deleteTimerButton_Click(object sender, EventArgs e)
         {
             DeleteTimer();
+        }
+
+        private void Default_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            LoadSettings();
         }
     }
 }

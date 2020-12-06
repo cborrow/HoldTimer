@@ -98,7 +98,13 @@ namespace HoldTimer
         {
             if(settingsDialog.ShowDialog() == DialogResult.OK)
             {
-
+                Properties.Settings.Default.TimerForeColor = settingsDialog.TimerForeColor;
+                Properties.Settings.Default.TimerBackColor = settingsDialog.TimerBackColor;
+                Properties.Settings.Default.AltTextColor = settingsDialog.AltTextForeColor;
+                Properties.Settings.Default.AlertTimeColor = settingsDialog.TimerAlertColor;
+                Properties.Settings.Default.OverTimeColor = settingsDialog.TimerOverColor;
+                Properties.Settings.Default.OverTimeValue = settingsDialog.TimeOverValue;
+                Properties.Settings.Default.Save();
             }
         }
     }
