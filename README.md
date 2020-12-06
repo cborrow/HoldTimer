@@ -8,4 +8,4 @@ with the alerts you can be notified after a set time has passed on your timer.
 
 #### Screenshots
 
-![3 Timers in various states] (https://raw.githubusercontent.com/cborrow/HoldTimer/master/HoldTimer/Screenshot.PNG)
+![3 Timers in various states](https://raw.githubusercontent.com/cborrow/HoldTimer/master/HoldTimer/Screenshot.PNG)
