@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- This theme file is not actually used by Hold Timer and is used as a template to create your own theme -->
+<Theme Name="Monokai" Description="A monokai based theme for Hold Timer">
+  <!-- All colors should be set to standard HTML color (e.g. #000, #000000, #3da601, etc) -->
+  <!-- Sets the overall background color of the application -->
+  <Color Name="AppBackColor" Value="#272822" />
+  <!-- Sets the background color of each timer control -->
+  <Color Name="TimerBackColor" Value="#3E3D32" />
+  <!-- Sets the foreground text color of each timer control (Non time text) -->
+  <Color Name="TimerForeColor" Value="#75715E" />
+  <!-- Sets the default color of the time in each timer control -->
+  <Color Name="TimeDefaultColor" Value="#A6E22E" />
+  <!-- Sets the color time changes to when it passes the alert time -->
+  <Color Name="AlertTimeColor" Value="#FD971F" />
+  <!-- Sets the color time changes to when it passes the over time -->
+  <Color Name="OverTimeColor" Value="#F92672" />
+</Theme>

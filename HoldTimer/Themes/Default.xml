@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- This theme file is not actually used by Hold Timer and is used as a template to create your own theme -->
+<!-- NOTE: Make sure to change the name. If it is set to Default the theme file will be ignored -->
+<Theme Name="Default" Description=""> 
+  <!-- All colors should be set to standard HTML color (e.g. #000, #000000, #3da601, etc) -->
+  <!-- Sets the overall background color of the application -->
+  <Color name="AppBackColor" value="" />
+  <!-- Sets the background color of each timer control -->
+  <Color name="TimerBackColor" value="" />
+  <!-- Sets the foreground text color of each timer control (Non time text) -->
+  <Color name="TimerForeColor" value="" />
+  <!-- Sets the default color of the time in each timer control -->
+  <Color name="TimeDefaultColor" value="" />
+  <!-- Sets the color time changes to when it passes the alert time -->
+  <Color name="AlertTimeColor" value="" />
+  <!-- Sets the color time changes to when it passes the over time -->
+  <Color name="OverTimeColor" value="" />
+</Theme>

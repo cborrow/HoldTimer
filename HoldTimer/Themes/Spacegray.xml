@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Theme Name="Spacegray" Description="">
+<Color Name="AppBackColor" Value="#2B303B" />
+<Color Name="TimerBackColor" Value="#65737E" />
+<Color Name="TimeForeColor" Value="#C0C5CE" />
+<Color Name="TimeDefaultColor" Value="#EBCB8B" />
+<Color Name="AlertTimeColor" Value="#D08770" />
+<Color Name="OverTimeColor" Value="#BF616A" />
+</Theme>
