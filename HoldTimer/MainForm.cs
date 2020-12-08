@@ -126,6 +126,7 @@ namespace HoldTimer
                 Properties.Settings.Default.AlertTimeColor = settingsDialog.AlertTimeColor;
                 Properties.Settings.Default.OverTimeColor = settingsDialog.OverTimeColor;
                 Properties.Settings.Default.OverTimeValue = settingsDialog.TimeOverValue;
+                Properties.Settings.Default.AlertNotificationDisplayTime = settingsDialog.AlertNotificationDisplayTime;
                 Properties.Settings.Default.Save();
             }
         }
