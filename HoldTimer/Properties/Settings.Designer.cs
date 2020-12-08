@@ -94,5 +94,29 @@ namespace HoldTimer.Properties {
                 this["OverTimeValue"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("51, 31, 67")]
+        public global::System.Drawing.Color AppBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["AppBackColor"]));
+            }
+            set {
+                this["AppBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Default")]
+        public string SelectedTheme {
+            get {
+                return ((string)(this["SelectedTheme"]));
+            }
+            set {
+                this["SelectedTheme"] = value;
+            }
+        }
     }
 }

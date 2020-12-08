@@ -20,5 +20,11 @@
     <Setting Name="OverTimeValue" Type="System.TimeSpan" Scope="User">
       <Value Profile="(Default)">00:02:00</Value>
     </Setting>
+    <Setting Name="AppBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">51, 31, 67</Value>
+    </Setting>
+    <Setting Name="SelectedTheme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Default</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
