@@ -57,11 +57,11 @@ namespace HoldTimer
                 int val = (int)numericUpDown1.Value;
 
                 if (comboBox1.Text == "Hours")
-                    return new TimeSpan(val, 0, 0);
+                    return TimeSpan.FromHours(val);
                 else if (comboBox1.Text == "Minutes")
-                    return new TimeSpan(0, val, 0);
+                    return TimeSpan.FromMinutes(val);
                 else
-                    return new TimeSpan(0, 0, val);
+                    return TimeSpan.FromSeconds(val);
             }
             set
             {
@@ -79,6 +79,39 @@ namespace HoldTimer
                 {
                     comboBox1.Text = "Seconds";
                     numericUpDown1.Value = value.Seconds;
+                }
+            }
+        }
+
+        public TimeSpan AlertNotificationDisplayTime
+        {
+            get
+            {
+                int val = (int)numericUpDown2.Value;
+
+                if (comboBox2.Text == "Hours")
+                    return TimeSpan.FromHours(val);
+                else if (comboBox2.Text == "Minutes")
+                    return TimeSpan.FromMinutes(val);
+                else
+                    return TimeSpan.FromSeconds(val);
+            }
+            set
+            {
+                if(value.Hours > 0)
+                {
+                    comboBox2.Text = "Hours";
+                    numericUpDown2.Value = value.Hours;
+                }
+                else if(value.Minutes > 0)
+                {
+                    comboBox2.Text = "Minutes";
+                    numericUpDown2.Value = value.Minutes;
+                }
+                else
+                {
+                    comboBox2.Text = "Seconds";
+                    numericUpDown2.Value = value.Seconds;
                 }
             }
         }

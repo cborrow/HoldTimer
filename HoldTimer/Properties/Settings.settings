@@ -26,5 +26,8 @@
     <Setting Name="SelectedTheme" Type="System.String" Scope="User">
       <Value Profile="(Default)">Default</Value>
     </Setting>
+    <Setting Name="AlertNotificationDisplayTime" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:00:30</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -118,5 +118,17 @@ namespace HoldTimer.Properties {
                 this["SelectedTheme"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("00:00:30")]
+        public global::System.TimeSpan AlertNotificationDisplayTime {
+            get {
+                return ((global::System.TimeSpan)(this["AlertNotificationDisplayTime"]));
+            }
+            set {
+                this["AlertNotificationDisplayTime"] = value;
+            }
+        }
     }
 }

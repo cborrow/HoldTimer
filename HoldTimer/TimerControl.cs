@@ -29,6 +29,7 @@ namespace HoldTimer
         }
 
         TimeSpan overTimeValue;
+        TimeSpan alertDisplayTime;
 
         bool running;
         public bool Running
@@ -182,7 +183,16 @@ namespace HoldTimer
 
         protected void ShowNotification()
         {
-            MainForm.NotificationIcon.ShowBalloonTip(15, Title + " - Hold Timer", "A running timer has reached it's alert timeout", ToolTipIcon.Warning);
+            int seconds = 0;
+
+            if (alertDisplayTime.Hours > 0)
+                seconds += (int)(alertDisplayTime.TotalHours * 3600);
+            if (alertDisplayTime.Minutes > 0)
+                seconds += (int)(alertDisplayTime.TotalMinutes * 60);
+            if (alertDisplayTime.Seconds > 0)
+                seconds += alertDisplayTime.Seconds;
+
+            MainForm.NotificationIcon.ShowBalloonTip(seconds, Title + " - Hold Timer", "A running timer has reached it's alert timeout", ToolTipIcon.Warning);
         }
 
         protected void LoadSettings()
@@ -195,6 +205,7 @@ namespace HoldTimer
             OverTimeColor = Properties.Settings.Default.OverTimeColor;
 
             overTimeValue = Properties.Settings.Default.OverTimeValue;
+            alertDisplayTime = Properties.Settings.Default.AlertNotificationDisplayTime;
 
             if (elapsedTime > alertTime)
             {
