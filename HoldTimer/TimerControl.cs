@@ -188,9 +188,9 @@ namespace HoldTimer
         protected void LoadSettings()
         {
             BackColor = Properties.Settings.Default.TimerBackColor;
-            ForeColor = Properties.Settings.Default.AltTextColor;
+            ForeColor = Properties.Settings.Default.TimerForeColor;
 
-            DefaultTimeColor = Properties.Settings.Default.TimerForeColor;
+            DefaultTimeColor = Properties.Settings.Default.TimeDefaultColor;
             AlertTimeColor = Properties.Settings.Default.AlertTimeColor;
             OverTimeColor = Properties.Settings.Default.OverTimeColor;
 

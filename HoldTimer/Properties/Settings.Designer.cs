@@ -38,12 +38,12 @@ namespace HoldTimer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("63, 150, 131")]
-        public global::System.Drawing.Color TimerForeColor {
+        public global::System.Drawing.Color TimeDefaultColor {
             get {
-                return ((global::System.Drawing.Color)(this["TimerForeColor"]));
+                return ((global::System.Drawing.Color)(this["TimeDefaultColor"]));
             }
             set {
-                this["TimerForeColor"] = value;
+                this["TimeDefaultColor"] = value;
             }
         }
         
@@ -74,12 +74,12 @@ namespace HoldTimer.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Gray")]
-        public global::System.Drawing.Color AltTextColor {
+        public global::System.Drawing.Color TimerForeColor {
             get {
-                return ((global::System.Drawing.Color)(this["AltTextColor"]));
+                return ((global::System.Drawing.Color)(this["TimerForeColor"]));
             }
             set {
-                this["AltTextColor"] = value;
+                this["TimerForeColor"] = value;
             }
         }
         

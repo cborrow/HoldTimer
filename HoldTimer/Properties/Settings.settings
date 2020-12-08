@@ -5,7 +5,7 @@
     <Setting Name="TimerBackColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">80, 60, 100</Value>
     </Setting>
-    <Setting Name="TimerForeColor" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="TimeDefaultColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">63, 150, 131</Value>
     </Setting>
     <Setting Name="AlertTimeColor" Type="System.Drawing.Color" Scope="User">
@@ -14,7 +14,7 @@
     <Setting Name="OverTimeColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Red</Value>
     </Setting>
-    <Setting Name="AltTextColor" Type="System.Drawing.Color" Scope="User">
+    <Setting Name="TimerForeColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Gray</Value>
     </Setting>
     <Setting Name="OverTimeValue" Type="System.TimeSpan" Scope="User">

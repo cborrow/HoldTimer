@@ -120,11 +120,11 @@ namespace HoldTimer
             if(settingsDialog.ShowDialog() == DialogResult.OK)
             {
                 Properties.Settings.Default.AppBackColor = settingsDialog.AppBackColor;
-                Properties.Settings.Default.TimerForeColor = settingsDialog.TimerForeColor;
                 Properties.Settings.Default.TimerBackColor = settingsDialog.TimerBackColor;
-                Properties.Settings.Default.AltTextColor = settingsDialog.AltTextForeColor;
-                Properties.Settings.Default.AlertTimeColor = settingsDialog.TimerAlertColor;
-                Properties.Settings.Default.OverTimeColor = settingsDialog.TimerOverColor;
+                Properties.Settings.Default.TimerForeColor = settingsDialog.TimerForeColor;
+                Properties.Settings.Default.TimeDefaultColor = settingsDialog.TimeDefaultColor;
+                Properties.Settings.Default.AlertTimeColor = settingsDialog.AlertTimeColor;
+                Properties.Settings.Default.OverTimeColor = settingsDialog.OverTimeColor;
                 Properties.Settings.Default.OverTimeValue = settingsDialog.TimeOverValue;
                 Properties.Settings.Default.Save();
             }
@@ -150,9 +150,9 @@ namespace HoldTimer
 
                 Theme theme = (Theme)selectedThemeMenuItem.Tag;
                 Properties.Settings.Default.AppBackColor = theme.AppBackColor;
-                Properties.Settings.Default.TimerForeColor = theme.TimeDefaultColor;
+                Properties.Settings.Default.TimeDefaultColor = theme.TimeDefaultColor;
                 Properties.Settings.Default.TimerBackColor = theme.TimerBackColor;
-                Properties.Settings.Default.AltTextColor = theme.TimerForeColor;
+                Properties.Settings.Default.TimerForeColor = theme.TimerForeColor;
                 Properties.Settings.Default.AlertTimeColor = theme.AlertTimeColor;
                 Properties.Settings.Default.OverTimeColor = theme.OverTimeColor;
                 Properties.Settings.Default.SelectedTheme = theme.Name;

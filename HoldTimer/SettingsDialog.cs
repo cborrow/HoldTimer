@@ -22,27 +22,27 @@ namespace HoldTimer
 
         public Color TimerForeColor
         {
+            get { return button5.BackColor; }
+            set { button5.BackColor = value; }
+        }
+
+        public Color TimeDefaultColor
+        {
             get { return button2.BackColor; }
             set { button2.BackColor = value; }
         }
 
-        public Color TimerAlertColor
+        public Color AlertTimeColor
         {
             get { return button3.BackColor; }
             set { button3.BackColor = value; }
         }
 
-        public Color TimerOverColor
+        public Color OverTimeColor
         {
             get { return button4.BackColor; }
             set { button4.BackColor = value; }
-        }
-
-        public Color AltTextForeColor
-        {
-            get { return button5.BackColor; }
-            set { button5.BackColor = value; }
-        }
+        } 
 
         public Color AppBackColor
         {
@@ -186,7 +186,7 @@ namespace HoldTimer
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show("There was an error attempting to save your theme to the Themes folder. If may not have permissions, or was unable to create Themes folder");
+                    MessageBox.Show("There was an error attempting to save your theme to the Themes folder. It may not have permissions, or was unable to create Themes folder");
 
 #if DEBUG
                     MessageBox.Show(ex.Message);
@@ -202,10 +202,10 @@ namespace HoldTimer
             themeXml.AppendLine(string.Format("<Theme Name=\"{0}\" Description=\"{1}\">", name, description));
             themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "AppBackColor", ColorTranslator.ToHtml(AppBackColor)));
             themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "TimerBackColor", ColorTranslator.ToHtml(TimerBackColor)));
-            themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "TimeForeColor", ColorTranslator.ToHtml(AltTextForeColor)));
-            themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "TimeDefaultColor", ColorTranslator.ToHtml(TimerForeColor)));
-            themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "AlertTimeColor", ColorTranslator.ToHtml(TimerAlertColor)));
-            themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "OverTimeColor", ColorTranslator.ToHtml(TimerOverColor)));
+            themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "TimeForeColor", ColorTranslator.ToHtml(TimerForeColor)));
+            themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "TimeDefaultColor", ColorTranslator.ToHtml(TimeDefaultColor)));
+            themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "AlertTimeColor", ColorTranslator.ToHtml(AlertTimeColor)));
+            themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "OverTimeColor", ColorTranslator.ToHtml(OverTimeColor)));
             themeXml.AppendLine("</Theme>");
 
             return themeXml.ToString();
