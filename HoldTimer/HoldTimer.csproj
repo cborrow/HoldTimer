@@ -67,6 +67,14 @@
     <Compile Include="SettingsDialog.Designer.cs">
       <DependentUpon>SettingsDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Theme.cs" />
+    <Compile Include="ThemeInfoDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemeInfoDialog.Designer.cs">
+      <DependentUpon>ThemeInfoDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThemeLoader.cs" />
     <Compile Include="TimerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -91,6 +99,9 @@
     </Compile>
     <EmbeddedResource Include="SettingsDialog.resx">
       <DependentUpon>SettingsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemeInfoDialog.resx">
+      <DependentUpon>ThemeInfoDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TimerControl.resx">
       <DependentUpon>TimerControl.cs</DependentUpon>
@@ -120,6 +131,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="holdtimer.ico" />
+    <Content Include="Themes\Monokai.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Themes\Default.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Themes\Spacegray.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

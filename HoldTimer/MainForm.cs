@@ -15,6 +15,8 @@ namespace HoldTimer
         NewTimerDialog newTimerDialog;
         SettingsDialog settingsDialog;
 
+        ThemeLoader themeLoader;
+
         static NotifyIcon notificationIcon;
         public static NotifyIcon NotificationIcon
         {
@@ -28,9 +30,28 @@ namespace HoldTimer
             notificationIcon = notifyIcon1;
             newTimerDialog = new NewTimerDialog();
             settingsDialog = new SettingsDialog();
+            themeLoader = new ThemeLoader();
+
+            themeLoader.LoadThemes();
+
+            foreach(Theme theme in themeLoader.LoadedThemes)
+            {
+                ToolStripMenuItem menuItem = new ToolStripMenuItem();
+                menuItem.Click += ThemeMenuItem_Click;
+                menuItem.Text = theme.Name;
+                menuItem.Tag = theme;
+
+                if (Properties.Settings.Default.SelectedTheme == theme.Name)
+                    menuItem.Checked = true;
+
+                themeDropDownMenuItem.DropDownItems.Add(menuItem);
+            }
 
             panel1.ControlRemoved += Panel1_ControlRemoved;
             panel1.ClientSizeChanged += Panel1_ClientSizeChanged;
+
+            Properties.Settings.Default.PropertyChanged += Default_PropertyChanged;
+            BackColor = Properties.Settings.Default.AppBackColor;
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -98,12 +119,43 @@ namespace HoldTimer
         {
             if(settingsDialog.ShowDialog() == DialogResult.OK)
             {
+                Properties.Settings.Default.AppBackColor = settingsDialog.AppBackColor;
                 Properties.Settings.Default.TimerForeColor = settingsDialog.TimerForeColor;
                 Properties.Settings.Default.TimerBackColor = settingsDialog.TimerBackColor;
                 Properties.Settings.Default.AltTextColor = settingsDialog.AltTextForeColor;
                 Properties.Settings.Default.AlertTimeColor = settingsDialog.TimerAlertColor;
                 Properties.Settings.Default.OverTimeColor = settingsDialog.TimerOverColor;
                 Properties.Settings.Default.OverTimeValue = settingsDialog.TimeOverValue;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void Default_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            BackColor = Properties.Settings.Default.AppBackColor;
+        }
+
+        private void ThemeMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem selectedThemeMenuItem = (ToolStripMenuItem)sender;
+
+            if(selectedThemeMenuItem != null)
+            {
+                for(int i = 0; i < themeDropDownMenuItem.DropDownItems.Count; i++)
+                {
+                    ((ToolStripMenuItem)themeDropDownMenuItem.DropDownItems[i]).Checked = false;
+                }
+
+                selectedThemeMenuItem.Checked = true;
+
+                Theme theme = (Theme)selectedThemeMenuItem.Tag;
+                Properties.Settings.Default.AppBackColor = theme.AppBackColor;
+                Properties.Settings.Default.TimerForeColor = theme.TimeDefaultColor;
+                Properties.Settings.Default.TimerBackColor = theme.TimerBackColor;
+                Properties.Settings.Default.AltTextColor = theme.TimerForeColor;
+                Properties.Settings.Default.AlertTimeColor = theme.AlertTimeColor;
+                Properties.Settings.Default.OverTimeColor = theme.OverTimeColor;
+                Properties.Settings.Default.SelectedTheme = theme.Name;
                 Properties.Settings.Default.Save();
             }
         }
