@@ -160,5 +160,50 @@ namespace HoldTimer
                 Properties.Settings.Default.Save();
             }
         }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            TimerControl tc = new TimerControl();
+            tc.Title = "Quick Chat/Call Hold (3 Minutes) " + string.Format("{0:00}:{1:00}", (dt.Hour > 12) ? (dt.Hour - 12) : dt.Hour, dt.Minute);
+            tc.AlertTime = TimeSpan.FromMinutes(3);
+            tc.Width = panel1.ClientSize.Width;
+            tc.Location = new Point(0, (panel1.Controls.Count * (tc.Height + 5)));
+
+            if (tc.Bottom > panel1.ClientSize.Height)
+                this.Height += tc.Height;
+
+            panel1.Controls.Add(tc);
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            TimerControl tc = new TimerControl();
+            tc.Title = "Quick Chat/Call Hold (5 Minutes) " + string.Format("{0:00}:{1:00}", (dt.Hour > 12) ? (dt.Hour - 12) : dt.Hour, dt.Minute);
+            tc.AlertTime = TimeSpan.FromMinutes(5);
+            tc.Width = panel1.ClientSize.Width;
+            tc.Location = new Point(0, (panel1.Controls.Count * (tc.Height + 5)));
+
+            if (tc.Bottom > panel1.ClientSize.Height)
+                this.Height += tc.Height;
+
+            panel1.Controls.Add(tc);
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            TimerControl tc = new TimerControl();
+            tc.Title = "Quick Chat/Call Hold (7 Minutes) " + string.Format("{0:00}:{1:00}", (dt.Hour > 12) ? (dt.Hour - 12) : dt.Hour, dt.Minute);
+            tc.AlertTime = TimeSpan.FromMinutes(7);
+            tc.Width = panel1.ClientSize.Width;
+            tc.Location = new Point(0, (panel1.Controls.Count * (tc.Height + 5)));
+
+            if (tc.Bottom > panel1.ClientSize.Height)
+                this.Height += tc.Height;
+
+            panel1.Controls.Add(tc);
+        }
     }
 }
