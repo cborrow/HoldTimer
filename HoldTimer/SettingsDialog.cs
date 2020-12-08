@@ -123,6 +123,18 @@ namespace HoldTimer
             themeInfoDialog = new ThemeInfoDialog();
         }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            button1.BackColor = Properties.Settings.Default.TimerBackColor;
+            button2.BackColor = Properties.Settings.Default.TimeDefaultColor;
+            button3.BackColor = Properties.Settings.Default.AlertTimeColor;
+            button4.BackColor = Properties.Settings.Default.OverTimeColor;
+            button5.BackColor = Properties.Settings.Default.TimerForeColor;
+            button8.BackColor = Properties.Settings.Default.AppBackColor;
+
+            base.OnLoad(e);
+        }
+
         private void button7_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
