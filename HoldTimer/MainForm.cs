@@ -71,7 +71,7 @@ namespace HoldTimer
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            if(newTimerDialog.ShowDialog() == DialogResult.OK)
+            if(newTimerDialog.ShowDialog(this) == DialogResult.OK)
             {
                 TimerControl tc = new TimerControl();
                 tc.Title = newTimerDialog.Title;
@@ -118,7 +118,7 @@ namespace HoldTimer
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            if(settingsDialog.ShowDialog() == DialogResult.OK)
+            if(settingsDialog.ShowDialog(this) == DialogResult.OK)
             {
                 Properties.Settings.Default.AppBackColor = settingsDialog.AppBackColor;
                 Properties.Settings.Default.TimerBackColor = settingsDialog.TimerBackColor;
