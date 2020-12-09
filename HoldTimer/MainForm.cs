@@ -52,6 +52,7 @@ namespace HoldTimer
 
             Properties.Settings.Default.PropertyChanged += Default_PropertyChanged;
             BackColor = Properties.Settings.Default.AppBackColor;
+            TopMost = Properties.Settings.Default.AlwaysOnTop;
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -127,7 +128,17 @@ namespace HoldTimer
                 Properties.Settings.Default.OverTimeColor = settingsDialog.OverTimeColor;
                 Properties.Settings.Default.OverTimeValue = settingsDialog.TimeOverValue;
                 Properties.Settings.Default.AlertNotificationDisplayTime = settingsDialog.AlertNotificationDisplayTime;
+                Properties.Settings.Default.AlwaysOnTop = settingsDialog.AlwaysOnTop;
                 Properties.Settings.Default.Save();
+
+                if(settingsDialog.AlwaysOnTop)
+                {
+                    TopMost = true;
+                }
+                else
+                {
+                    TopMost = false;
+                }
             }
         }
 

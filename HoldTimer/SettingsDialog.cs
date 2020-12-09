@@ -116,6 +116,12 @@ namespace HoldTimer
             }
         }
 
+        public bool AlwaysOnTop
+        {
+            get { return checkBox1.Checked; }
+            set { checkBox1.Checked = value; }
+        }
+
         public SettingsDialog()
         {
             InitializeComponent();
@@ -131,6 +137,7 @@ namespace HoldTimer
             button4.BackColor = Properties.Settings.Default.OverTimeColor;
             button5.BackColor = Properties.Settings.Default.TimerForeColor;
             button8.BackColor = Properties.Settings.Default.AppBackColor;
+            checkBox1.Checked = Properties.Settings.Default.AlwaysOnTop;
 
             base.OnLoad(e);
         }
