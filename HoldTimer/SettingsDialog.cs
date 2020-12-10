@@ -50,6 +50,36 @@ namespace HoldTimer
             set { button8.BackColor = value; }
         }
 
+        public Color ToolbarForeColor
+        {
+            get { return button10.BackColor; }
+            set { button10.BackColor = value; }
+        }
+
+        public Color ToolbarBackColor
+        {
+            get { return button9.BackColor; }
+            set { button9.BackColor = value; }
+        }
+
+        public Color ButtonPressedColor
+        {
+            get { return button13.BackColor; }
+            set { button13.BackColor = value; }
+        }
+
+        public Color ButtonBackColor
+        {
+            get { return button11.BackColor; }
+            set { button11.BackColor = value; }
+        }
+
+        public Color ButtonHoverColor
+        {
+            get { return button12.BackColor; }
+            set { button12.BackColor = value; }
+        }
+
         public TimeSpan TimeOverValue
         {
             get
@@ -137,6 +167,11 @@ namespace HoldTimer
             button4.BackColor = Properties.Settings.Default.OverTimeColor;
             button5.BackColor = Properties.Settings.Default.TimerForeColor;
             button8.BackColor = Properties.Settings.Default.AppBackColor;
+            button9.BackColor = Properties.Settings.Default.ToolbarBackColor;
+            button10.BackColor = Properties.Settings.Default.ToolbarForeColor;
+            button11.BackColor = Properties.Settings.Default.ButtonBackColor;
+            button12.BackColor = Properties.Settings.Default.ButtonHoverColor;
+            button13.BackColor = Properties.Settings.Default.ButtonPressedColor;
             checkBox1.Checked = Properties.Settings.Default.AlwaysOnTop;
 
             base.OnLoad(e);
@@ -258,6 +293,11 @@ namespace HoldTimer
             themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "TimeDefaultColor", ColorTranslator.ToHtml(TimeDefaultColor)));
             themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "AlertTimeColor", ColorTranslator.ToHtml(AlertTimeColor)));
             themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "OverTimeColor", ColorTranslator.ToHtml(OverTimeColor)));
+            themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "ToolbarForeColor", ColorTranslator.ToHtml(ToolbarForeColor)));
+            themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "ToolbarBackColor", ColorTranslator.ToHtml(ToolbarBackColor)));
+            themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "ButtonBackColor", ColorTranslator.ToHtml(ButtonBackColor)));
+            themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "ButtonHoverColor", ColorTranslator.ToHtml(ButtonHoverColor)));
+            themeXml.AppendLine(string.Format("<Color Name=\"{0}\" Value=\"{1}\" />", "ButtonPressedColor", ColorTranslator.ToHtml(ButtonPressedColor)));
             themeXml.AppendLine("</Theme>");
 
             return themeXml.ToString();
@@ -278,6 +318,11 @@ namespace HoldTimer
             fileName += ".xml";
 
             return fileName;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

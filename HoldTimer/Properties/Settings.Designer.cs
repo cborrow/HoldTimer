@@ -142,5 +142,65 @@ namespace HoldTimer.Properties {
                 this["AlwaysOnTop"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("144, 164, 174")]
+        public global::System.Drawing.Color ToolbarForeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["ToolbarForeColor"]));
+            }
+            set {
+                this["ToolbarForeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("66, 66, 66")]
+        public global::System.Drawing.Color ToolbarBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["ToolbarBackColor"]));
+            }
+            set {
+                this["ToolbarBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("66, 66, 66")]
+        public global::System.Drawing.Color ButtonBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["ButtonBackColor"]));
+            }
+            set {
+                this["ButtonBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("55, 71, 79")]
+        public global::System.Drawing.Color ButtonHoverColor {
+            get {
+                return ((global::System.Drawing.Color)(this["ButtonHoverColor"]));
+            }
+            set {
+                this["ButtonHoverColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("66, 66, 66")]
+        public global::System.Drawing.Color ButtonPressedColor {
+            get {
+                return ((global::System.Drawing.Color)(this["ButtonPressedColor"]));
+            }
+            set {
+                this["ButtonPressedColor"] = value;
+            }
+        }
     }
 }

@@ -19,6 +19,11 @@ namespace HoldTimer
         public Color TimeDefaultColor { get; set; } = Color.FromArgb(63, 150, 131);
         public Color AlertTimeColor { get; set; } = Color.Yellow;
         public Color OverTimeColor { get; set; } = Color.Red;
+        public Color ToolbarForeColor { get; set; } = ColorTranslator.FromHtml("#90A4AE");
+        public Color ToolbarBackColor { get; set; } = ColorTranslator.FromHtml("#424242");
+        public Color ButtonBackColor { get; set; } = ColorTranslator.FromHtml("#424242");
+        public Color ButtonHoverColor { get; set; } = ColorTranslator.FromHtml("#37474F");
+        public Color ButtonPressedColor { get; set; } = ColorTranslator.FromHtml("#424242");
 
         public Theme()
         {

@@ -15,6 +15,7 @@ namespace HoldTimer
         NewTimerDialog newTimerDialog;
         SettingsDialog settingsDialog;
 
+        HoldTimerToolStripRenderer toolStripRenderer;
         ThemeLoader themeLoader;
 
         static NotifyIcon notificationIcon;
@@ -34,6 +35,12 @@ namespace HoldTimer
 
             themeLoader.LoadThemes();
 
+            toolStripRenderer = new HoldTimerToolStripRenderer();
+            toolStripRenderer.ActiveTheme = themeLoader.ActiveTheme;
+
+            toolStrip1.Renderer = toolStripRenderer;
+            toolStrip2.Renderer = toolStripRenderer;
+
             foreach(Theme theme in themeLoader.LoadedThemes)
             {
                 ToolStripMenuItem menuItem = new ToolStripMenuItem();
@@ -42,7 +49,10 @@ namespace HoldTimer
                 menuItem.Tag = theme;
 
                 if (Properties.Settings.Default.SelectedTheme == theme.Name)
+                {
                     menuItem.Checked = true;
+                    toolStripRenderer.ActiveTheme = theme;
+                }
 
                 themeDropDownMenuItem.DropDownItems.Add(menuItem);
             }
@@ -126,6 +136,11 @@ namespace HoldTimer
                 Properties.Settings.Default.TimeDefaultColor = settingsDialog.TimeDefaultColor;
                 Properties.Settings.Default.AlertTimeColor = settingsDialog.AlertTimeColor;
                 Properties.Settings.Default.OverTimeColor = settingsDialog.OverTimeColor;
+                Properties.Settings.Default.ToolbarForeColor = settingsDialog.ToolbarForeColor;
+                Properties.Settings.Default.ToolbarBackColor = settingsDialog.ToolbarBackColor;
+                Properties.Settings.Default.ButtonBackColor = settingsDialog.ButtonBackColor;
+                Properties.Settings.Default.ButtonHoverColor = settingsDialog.ButtonHoverColor;
+                Properties.Settings.Default.ButtonPressedColor = settingsDialog.ButtonPressedColor;
                 Properties.Settings.Default.OverTimeValue = settingsDialog.TimeOverValue;
                 Properties.Settings.Default.AlertNotificationDisplayTime = settingsDialog.AlertNotificationDisplayTime;
                 Properties.Settings.Default.AlwaysOnTop = settingsDialog.AlwaysOnTop;
@@ -166,9 +181,16 @@ namespace HoldTimer
                 Properties.Settings.Default.TimerBackColor = theme.TimerBackColor;
                 Properties.Settings.Default.TimerForeColor = theme.TimerForeColor;
                 Properties.Settings.Default.AlertTimeColor = theme.AlertTimeColor;
+                Properties.Settings.Default.ToolbarForeColor = theme.ToolbarForeColor;
+                Properties.Settings.Default.ToolbarBackColor = theme.ToolbarBackColor;
+                Properties.Settings.Default.ButtonBackColor = theme.ButtonBackColor;
+                Properties.Settings.Default.ButtonHoverColor = theme.ButtonHoverColor;
+                Properties.Settings.Default.ButtonPressedColor = theme.ButtonPressedColor;
                 Properties.Settings.Default.OverTimeColor = theme.OverTimeColor;
                 Properties.Settings.Default.SelectedTheme = theme.Name;
                 Properties.Settings.Default.Save();
+
+                toolStripRenderer.ActiveTheme = theme;
             }
         }
 

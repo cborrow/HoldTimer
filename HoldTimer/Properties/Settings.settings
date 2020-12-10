@@ -32,5 +32,20 @@
     <Setting Name="AlwaysOnTop" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="ToolbarForeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">144, 164, 174</Value>
+    </Setting>
+    <Setting Name="ToolbarBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">66, 66, 66</Value>
+    </Setting>
+    <Setting Name="ButtonBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">66, 66, 66</Value>
+    </Setting>
+    <Setting Name="ButtonHoverColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">55, 71, 79</Value>
+    </Setting>
+    <Setting Name="ButtonPressedColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">66, 66, 66</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
