@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Theme Name="Monokai Pro" Description="">
+<Color Name="AppBackColor" Value="#211F22" />
+<Color Name="TimerBackColor" Value="#2B292E" />
+<Color Name="TimeForeColor" Value="#8A8180" />
+<Color Name="TimeDefaultColor" Value="#87A94C" />
+<Color Name="AlertTimeColor" Value="#D9A07B" />
+<Color Name="OverTimeColor" Value="#D3557A" />
+</Theme>
