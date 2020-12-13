@@ -144,6 +144,7 @@ namespace HoldTimer
                 Properties.Settings.Default.OverTimeValue = settingsDialog.TimeOverValue;
                 Properties.Settings.Default.AlertNotificationDisplayTime = settingsDialog.AlertNotificationDisplayTime;
                 Properties.Settings.Default.AlwaysOnTop = settingsDialog.AlwaysOnTop;
+                Properties.Settings.Default.AlertAudioSource = settingsDialog.AlertAudioSource;
                 Properties.Settings.Default.Save();
 
                 if(settingsDialog.AlwaysOnTop)

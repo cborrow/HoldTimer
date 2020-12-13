@@ -202,5 +202,17 @@ namespace HoldTimer.Properties {
                 this["ButtonPressedColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string AlertAudioSource {
+            get {
+                return ((string)(this["AlertAudioSource"]));
+            }
+            set {
+                this["AlertAudioSource"] = value;
+            }
+        }
     }
 }

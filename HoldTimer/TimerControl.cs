@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+using System.Media;
 
 namespace HoldTimer
 {
@@ -15,8 +16,11 @@ namespace HoldTimer
         protected delegate void UpdateTimerDisplayDelegate(TimeSpan time);
         protected delegate void ShowNotificationDelegate();
         protected delegate void SetTimerColorDelegate(Color color);
+        protected delegate void PlayAlertSoundDelegate();
 
         Thread timerThread;
+        SoundPlayer soundPlayer;
+        string alertAudioSorce = string.Empty;
 
         List<TimeSpan> pastTimes = new List<TimeSpan>();
         TimeSpan elapsedTime = new TimeSpan();
@@ -60,6 +64,11 @@ namespace HoldTimer
 
             LoadSettings();
             Properties.Settings.Default.PropertyChanged += Default_PropertyChanged;
+
+            alertAudioSorce = Properties.Settings.Default.AlertAudioSource;
+
+            if (System.IO.File.Exists(alertAudioSorce))
+                soundPlayer = new SoundPlayer(alertAudioSorce);
         }
 
         public void PauseTimer()
@@ -128,6 +137,7 @@ namespace HoldTimer
                         {
                             Invoke(new ShowNotificationDelegate(ShowNotification));
                             Invoke(new SetTimerColorDelegate(SetTimerColor), AlertTimeColor);
+                            Invoke(new PlayAlertSoundDelegate(PlayAlertSound));
                         }
                     }
                     else if(elapsedTime > alertTime.Add(overTimeValue))
@@ -193,6 +203,22 @@ namespace HoldTimer
                 seconds += alertDisplayTime.Seconds;
 
             MainForm.NotificationIcon.ShowBalloonTip(seconds, Title + " - Hold Timer", "A running timer has reached it's alert timeout", ToolTipIcon.Warning);
+        }
+
+        protected void PlayAlertSound()
+        {
+            if(soundPlayer != null)
+            {
+                try
+                {
+                    soundPlayer.Play();
+                }
+                catch(Exception ex)
+                {
+                    //Log this Exception instead of only displaying to output
+                    Console.WriteLine("Unable to play sound " + soundPlayer.SoundLocation + "\r\n" + ex.Message);
+                }
+            }
         }
 
         protected void LoadSettings()

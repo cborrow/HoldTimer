@@ -152,6 +152,12 @@ namespace HoldTimer
             set { checkBox1.Checked = value; }
         }
 
+        public string AlertAudioSource
+        {
+            get { return textBox1.Text; }
+            set { textBox1.Text = value; }
+        }
+
         public SettingsDialog()
         {
             InitializeComponent();
@@ -161,18 +167,19 @@ namespace HoldTimer
 
         protected override void OnLoad(EventArgs e)
         {
-            button1.BackColor = Properties.Settings.Default.TimerBackColor;
-            button2.BackColor = Properties.Settings.Default.TimeDefaultColor;
-            button3.BackColor = Properties.Settings.Default.AlertTimeColor;
-            button4.BackColor = Properties.Settings.Default.OverTimeColor;
-            button5.BackColor = Properties.Settings.Default.TimerForeColor;
-            button8.BackColor = Properties.Settings.Default.AppBackColor;
-            button9.BackColor = Properties.Settings.Default.ToolbarBackColor;
-            button10.BackColor = Properties.Settings.Default.ToolbarForeColor;
-            button11.BackColor = Properties.Settings.Default.ButtonBackColor;
-            button12.BackColor = Properties.Settings.Default.ButtonHoverColor;
-            button13.BackColor = Properties.Settings.Default.ButtonPressedColor;
-            checkBox1.Checked = Properties.Settings.Default.AlwaysOnTop;
+            TimerBackColor = Properties.Settings.Default.TimerBackColor;
+            TimeDefaultColor = Properties.Settings.Default.TimeDefaultColor;
+            AlertTimeColor = Properties.Settings.Default.AlertTimeColor;
+            OverTimeColor = Properties.Settings.Default.OverTimeColor;
+            TimerForeColor = Properties.Settings.Default.TimerForeColor;
+            AppBackColor = Properties.Settings.Default.AppBackColor;
+            ToolbarBackColor = Properties.Settings.Default.ToolbarBackColor;
+            ToolbarForeColor = Properties.Settings.Default.ToolbarForeColor;
+            ButtonBackColor = Properties.Settings.Default.ButtonBackColor;
+            ButtonHoverColor = Properties.Settings.Default.ButtonHoverColor;
+            ButtonPressedColor = Properties.Settings.Default.ButtonPressedColor;
+            AlwaysOnTop = Properties.Settings.Default.AlwaysOnTop;
+            AlertAudioSource = Properties.Settings.Default.AlertAudioSource;
 
             base.OnLoad(e);
         }
@@ -193,7 +200,7 @@ namespace HoldTimer
             if(colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 Color c = colorDialog1.Color;
-                button1.BackColor = c;
+                TimerBackColor = c;
             }
         }
 
@@ -203,7 +210,7 @@ namespace HoldTimer
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 Color c = colorDialog1.Color;
-                button2.BackColor = c;
+                TimeDefaultColor = c;
             }
         }
 
@@ -213,7 +220,7 @@ namespace HoldTimer
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 Color c = colorDialog1.Color;
-                button3.BackColor = c;
+                AlertTimeColor= c;
             }
         }
 
@@ -223,7 +230,7 @@ namespace HoldTimer
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 Color c = colorDialog1.Color;
-                button4.BackColor = c;
+                OverTimeColor = c;
             }
         }
 
@@ -233,7 +240,7 @@ namespace HoldTimer
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 Color c = colorDialog1.Color;
-                button5.BackColor = c;
+                TimerForeColor = c;
             }
         }
 
@@ -243,7 +250,7 @@ namespace HoldTimer
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 Color c = colorDialog1.Color;
-                button8.BackColor = c;
+                AppBackColor = c;
             }
         }
 
@@ -323,6 +330,72 @@ namespace HoldTimer
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "WAV Files (*.wav)|*.wav";
+            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string path = openFileDialog1.FileName;
+
+                if (Path.GetExtension(path).ToLower() != ".wav")
+                    MessageBox.Show("The alert sound can only be a .wav file.");
+                else
+                {
+                    AlertAudioSource = path;
+                }
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            //ButtonPressedColor
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Color c = colorDialog1.Color;
+                ButtonPressedColor = c;
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            //ButtonBackColor
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Color c = colorDialog1.Color;
+                ButtonBackColor = c;
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            //ButtonHoverColor
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Color c = colorDialog1.Color;
+                ButtonHoverColor = c;
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            //ToolbarBackColor
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Color c = colorDialog1.Color;
+                ToolbarBackColor = c;
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            //ToolbarForeColor
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Color c = colorDialog1.Color;
+                ToolbarForeColor = c;
+            }
         }
     }
 }
